@@ -1,6 +1,6 @@
 
 import socket, threading
-LOCALHOST = '192.168.43.98'
+LOCALHOST = '127.0.0.1'
 PORT = 1984
 
 
@@ -15,9 +15,10 @@ def start_server_one():
             client_socket, address = server.accept()
             data = client_socket.recv(1024).decode('utf-8')
             print(data)
+            a = input(' Отправляем? ')
            # content = load_page_from_get_request('Hello')
             content = "HI".encode('utf-8')
-            client_socket.send(content)
+            client_socket.send(a)
             client_socket.shutdown(socket.SHUT_WR)
     except KeyboardInterrupt:
         server.close()
